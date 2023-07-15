@@ -1,0 +1,178 @@
+﻿<UserControl
+    x:Class="SnapPreviewPrototype.Controls.Window2Control"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SnapPreviewPrototype.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="888"
+    d:DesignWidth="912">
+
+    <!-- LayoutRoot -->
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2" />
+            <ColumnDefinition Width="2" />
+            <ColumnDefinition />
+            <ColumnDefinition Width="2" />
+            <ColumnDefinition Width="2" />
+        </Grid.ColumnDefinitions>
+
+        <!-- Window -->
+        <Grid Grid.Column="1" Grid.ColumnSpan="3">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="76" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <!-- Browser Toolbar -->
+            <Grid x:Name="Titlebar" Background="{StaticResource LightGrayBrush}" IsHitTestVisible="True">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="32" />
+                    <RowDefinition Height="44" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="240" />
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <!-- Tabs -->
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Button Style="{StaticResource TabsButtonStyle}" Background="{StaticResource DarkGrayBrush}">
+                        <TextBlock Text="&#xE737;" />
+                    </Button>   
+                    <TextBlock x:Uid="Tab" Grid.Column="1" Style="{StaticResource TabsTextStyle}" Margin="12,0" />
+                    <Button Grid.Column="2" Style="{StaticResource TabsButtonStyle}">
+                        <TextBlock Text="&#xE711;" />
+                    </Button>
+                    <Button Grid.Column="3" Style="{StaticResource TabsButtonStyle}" Background="{StaticResource DarkGrayBrush}">
+                        <TextBlock Text="&#xE710;" />
+                    </Button>
+                </Grid>
+
+                <Grid Grid.Column="1" Grid.ColumnSpan="2" Background="{StaticResource DarkGrayBrush}" />
+
+                <!-- Titlebar buttons -->
+                <StackPanel Grid.Column="3" Orientation="Horizontal" HorizontalAlignment="Right">
+
+                    <!-- Snap Left -->
+                    <Button
+                        x:Name="btn_SnapLeft2"
+                        Style="{StaticResource TitlebarButtonStyle}"
+                        PointerPressed="Btn_SnapLeft_PointerPressed"
+                        PointerReleased="Btn_SnapLeft_PointerReleased">
+                        <TextBlock Text="&#xE746;" />
+                    </Button>
+
+                    <!-- Snap Right -->
+                    <Button
+                        x:Name="btn_SnapRight2"
+                        Style="{StaticResource TitlebarButtonStyle}"
+                        RenderTransformOrigin="0.5,0.5"
+                        PointerPressed="Btn_SnapRight_PointerPressed"
+                        PointerReleased="Btn_SnapRight_PointerReleased">
+                        <TextBlock Text="&#xEA61;" />
+                    </Button>
+
+                    <!-- Minimize -->
+                    <Button Style="{StaticResource TitlebarButtonStyle}">
+                        <TextBlock Text="&#xE921;" />
+                    </Button>
+
+                    <!-- Maximize -->
+                    <Button
+                        x:Name="btn_Maximize2"
+                        Style="{StaticResource TitlebarButtonStyle}"
+                        Visibility="Visible"
+                        PointerPressed="Btn_Maximize2_PointerPressed"
+                        PointerReleased="Btn_Maximize2_PointerReleased">
+                        <TextBlock Text="&#xE922;" />
+                    </Button>
+
+                    <!-- Restore -->
+                    <Button
+                        x:Name="btn_Restore2"
+                        Style="{StaticResource TitlebarButtonStyle}"
+                        Click="Btn_Restore_Click"
+                        Visibility="Collapsed">
+                        <TextBlock Text="&#xE923;" />
+                    </Button>
+
+                    <!-- Close -->
+                    <Button Style="{StaticResource TitlebarButtonStyle}">
+                        <TextBlock Text="&#xE8BB;" />
+                    </Button>
+                </StackPanel>
+
+                <!-- Left Toolbar -->
+                <Grid Grid.Row="1" Grid.ColumnSpan="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Button Style="{StaticResource ToolbarButtonStyle}">
+                        <TextBlock Text="&#xE72B;" />
+                    </Button>
+                    <Button Grid.Column="1" Style="{StaticResource ToolbarButtonStyle}" IsEnabled="False">
+                        <TextBlock Text="&#xE72A;" />
+                    </Button>
+                    <Button Grid.Column="2" Style="{StaticResource ToolbarButtonStyle}">
+                        <TextBlock Text="&#xE72C;" />
+                    </Button>
+                    <Border
+                        Grid.Column="3"
+                        Background="Gray"
+                        BorderThickness="0"
+                        Width="1"
+                        Height="26"
+                        Margin="18,0,12,0"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center" />
+                    <TextBlock x:Uid="Info" Grid.Column="4" Style="{StaticResource TabsTextStyle}" />
+                </Grid>
+
+                <!-- Right Toolbar -->
+                <Grid Grid.Row="1" Grid.Column="2">
+                    <Button Style="{StaticResource ToolbarButtonStyle}" HorizontalAlignment="Right">
+                        <TextBlock Text="&#xE712;" />
+                    </Button>
+                </Grid>
+            </Grid>
+
+            <!-- Browser Content -->
+            <Image
+                Grid.Row="1"
+                Source="ms-appx:///Assets/Placeholders/Browser2.png"
+                Stretch="UniformToFill"
+                IsHitTestVisible="False" />
+        </Grid>
+
+        <!-- Window snap highlights -->
+        <Rectangle
+            x:Name="LeftSnapHighlight"
+            Grid.RowSpan="3"
+            Grid.ColumnSpan="2"
+            Fill="{StaticResource SnapBrush}"
+            Visibility="Collapsed" />
+
+        <Rectangle
+            x:Name="RightSnapHighlight"
+            Grid.RowSpan="3"
+            Grid.Column="3"
+            Grid.ColumnSpan="2"
+            Fill="{StaticResource SnapBrush}"
+            Visibility="Collapsed" />
+
+    </Grid>
+</UserControl>

@@ -1,0 +1,122 @@
+﻿<UserControl
+    x:Class="SnapPreviewPrototype.Controls.PreviewWindowControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SnapPreviewPrototype.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignWidth="227"
+    d:DesignHeight="131"
+    IsHitTestVisible="False">
+
+    <!-- LayoutRoot -->
+    <Grid>
+
+        <!-- Shadow -->
+        <Rectangle
+            Width="224"
+            Height="128"
+            Margin="1,1,0,0"
+            Stroke="#99000000"
+            StrokeThickness="1"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top" />
+        <Rectangle
+            Width="224"
+            Height="128"
+            Margin="2,2,0,0"
+            Stroke="#4C000000"
+            StrokeThickness="1"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top" />
+        <Rectangle
+            Width="224"
+            Height="128"
+            Margin="3,3,0,0"
+            Stroke="#19000000"
+            StrokeThickness="1"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top" />
+
+        <!-- Gesture Window -->
+        <Border
+            BorderBrush="{StaticResource SnapBrush}"
+            BorderThickness="1"
+            Width="224"
+            Height="128">
+            <Border.Background>
+                <ImageBrush ImageSource="ms-appx:///Assets/Wallpaper/Wallpaper.jpg" Stretch="Fill" />
+            </Border.Background>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="112" />
+                    <ColumnDefinition Width="112" />
+                </Grid.ColumnDefinitions>
+
+                <!-- Default -->
+                <Image
+                    x:Name="imgWindow1Default"
+                    Grid.ColumnSpan="2"
+                    Source="ms-appx:///Assets/PreviewWindow/Window1Preview.png"
+                    Stretch="Uniform"
+                    Width="76"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Visibility="Collapsed" />
+                <Image
+                    x:Name="imgWindow2Default"
+                    Grid.ColumnSpan="2"
+                    Source="ms-appx:///Assets/PreviewWindow/Window2Preview.png"
+                    Stretch="Uniform"
+                    Width="76"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Visibility="Collapsed" />
+
+                <!-- Snap Left -->
+                <Image
+                    x:Name="imgWindow1SnapLeft"
+                    Source="ms-appx:///Assets/PreviewWindow/Window1Preview.png"
+                    Stretch="Fill"
+                    Visibility="Collapsed" />
+                <Image
+                    x:Name="imgWindow2SnapLeft"
+                    Source="ms-appx:///Assets/PreviewWindow/Window2Preview.png"
+                    Stretch="Fill"
+                    Visibility="Collapsed" />
+
+                <!-- Snap Right -->
+                <Image
+                    x:Name="imgWindow1SnapRight"
+                    Grid.Column="1"
+                    Source="ms-appx:///Assets/PreviewWindow/Window1Preview.png"
+                    Stretch="Fill"
+                    Visibility="Collapsed" />
+                <Image
+                    x:Name="imgWindow2SnapRight"
+                    Grid.Column="1"
+                    Source="ms-appx:///Assets/PreviewWindow/Window2Preview.png"
+                    Stretch="Fill"
+                    Visibility="Collapsed" />
+
+                <!-- Maximize -->
+                <Image
+                    x:Name="imgWindow1SnapMaximize"
+                    Grid.ColumnSpan="2"
+                    Source="ms-appx:///Assets/PreviewWindow/Window1Preview.png"
+                    Stretch="UniformToFill"
+                    Width="224"
+                    Visibility="Collapsed" />
+                <Image
+                    x:Name="imgWindow2SnapMaximize"
+                    Grid.ColumnSpan="2"
+                    Source="ms-appx:///Assets/PreviewWindow/Window2Preview.png"
+                    Stretch="UniformToFill"
+                    Width="224"
+                    Visibility="Collapsed" />
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>
