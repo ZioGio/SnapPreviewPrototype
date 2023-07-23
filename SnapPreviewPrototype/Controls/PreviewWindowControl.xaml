@@ -46,7 +46,11 @@
             Width="224"
             Height="128">
             <Border.Background>
-                <ImageBrush ImageSource="ms-appx:///Assets/Wallpaper/Wallpaper.jpg" Stretch="Fill" />
+                <ImageBrush Stretch="Fill">
+                    <ImageBrush.ImageSource>
+                        <BitmapImage UriSource="ms-appx:///Assets/Wallpaper/Wallpaper.jpg" />
+                    </ImageBrush.ImageSource>
+                </ImageBrush>
             </Border.Background>
 
             <Grid>
@@ -59,63 +63,83 @@
                 <Image
                     x:Name="imgWindow1Default"
                     Grid.ColumnSpan="2"
-                    Source="ms-appx:///Assets/PreviewWindow/Window1Preview.png"
-                    Stretch="Uniform"
-                    Width="76"
+                    Stretch="None"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
-                    Visibility="Collapsed" />
+                    Visibility="Collapsed">
+                    <Image.Source>
+                        <BitmapImage UriSource="ms-appx:///Assets/PreviewWindow/Window1Preview.png" DecodePixelWidth="76" />
+                    </Image.Source>
+                </Image>
                 <Image
                     x:Name="imgWindow2Default"
                     Grid.ColumnSpan="2"
-                    Source="ms-appx:///Assets/PreviewWindow/Window2Preview.png"
-                    Stretch="Uniform"
-                    Width="76"
+                    Stretch="None"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
-                    Visibility="Collapsed" />
+                    Visibility="Collapsed">
+                    <Image.Source>
+                        <BitmapImage UriSource="ms-appx:///Assets/PreviewWindow/Window2Preview.png" DecodePixelWidth="76" />
+                    </Image.Source>
+                </Image>
 
                 <!-- Snap Left -->
                 <Image
                     x:Name="imgWindow1SnapLeft"
-                    Source="ms-appx:///Assets/PreviewWindow/Window1Preview.png"
                     Stretch="Fill"
-                    Visibility="Collapsed" />
+                    Visibility="Collapsed">
+                    <Image.Source>
+                        <BitmapImage UriSource="ms-appx:///Assets/PreviewWindow/Window1Preview.png" />
+                    </Image.Source>
+                </Image>
                 <Image
                     x:Name="imgWindow2SnapLeft"
-                    Source="ms-appx:///Assets/PreviewWindow/Window2Preview.png"
                     Stretch="Fill"
-                    Visibility="Collapsed" />
+                    Visibility="Collapsed">
+                    <Image.Source>
+                        <BitmapImage UriSource="ms-appx:///Assets/PreviewWindow/Window2Preview.png" />
+                    </Image.Source>
+                </Image>
 
                 <!-- Snap Right -->
                 <Image
                     x:Name="imgWindow1SnapRight"
                     Grid.Column="1"
-                    Source="ms-appx:///Assets/PreviewWindow/Window1Preview.png"
                     Stretch="Fill"
-                    Visibility="Collapsed" />
+                    Visibility="Collapsed">
+                    <Image.Source>
+                        <BitmapImage UriSource="ms-appx:///Assets/PreviewWindow/Window1Preview.png" />
+                    </Image.Source>
+                </Image>
                 <Image
                     x:Name="imgWindow2SnapRight"
                     Grid.Column="1"
-                    Source="ms-appx:///Assets/PreviewWindow/Window2Preview.png"
                     Stretch="Fill"
-                    Visibility="Collapsed" />
+                    Visibility="Collapsed">
+                    <Image.Source>
+                        <BitmapImage UriSource="ms-appx:///Assets/PreviewWindow/Window2Preview.png" />
+                    </Image.Source>
+                </Image>
 
                 <!-- Maximize -->
                 <Image
                     x:Name="imgWindow1SnapMaximize"
                     Grid.ColumnSpan="2"
-                    Source="ms-appx:///Assets/PreviewWindow/Window1Preview.png"
-                    Stretch="UniformToFill"
-                    Width="224"
-                    Visibility="Collapsed" />
+                    Stretch="None"
+                    Visibility="Collapsed">
+                    <Image.Source>
+                        <BitmapImage UriSource="ms-appx:///Assets/PreviewWindow/Window1Preview.png" DecodePixelWidth="224" />
+                    </Image.Source>
+                </Image>
                 <Image
                     x:Name="imgWindow2SnapMaximize"
                     Grid.ColumnSpan="2"
-                    Source="ms-appx:///Assets/PreviewWindow/Window2Preview.png"
-                    Stretch="UniformToFill"
-                    Width="224"
-                    Visibility="Collapsed" />
+                    Stretch="None"
+                    Visibility="Collapsed">
+                    <Image.Source>
+                        <BitmapImage UriSource="ms-appx:///Assets/PreviewWindow/Window2Preview.png" DecodePixelWidth="224" />
+                    </Image.Source>
+                </Image>
             </Grid>
         </Border>
     </Grid>

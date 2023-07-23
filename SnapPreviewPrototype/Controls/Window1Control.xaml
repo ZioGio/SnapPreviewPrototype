@@ -153,9 +153,12 @@
             <!-- Browser Content -->
             <Image
                 Grid.Row="1"
-                Source="ms-appx:///Assets/Placeholders/Browser1.png"
                 Stretch="UniformToFill"
-                IsHitTestVisible="False" />
+                IsHitTestVisible="False">
+                <Image.Source>
+                    <BitmapImage UriSource="ms-appx:///Assets/Placeholders/Browser1.png" />
+                </Image.Source>
+            </Image>
         </Grid>
 
         <!-- Window snap highlights -->

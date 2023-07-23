@@ -37,7 +37,11 @@
             VerticalAlignment="Top" />
         <Border BorderBrush="#FF0077D6" BorderThickness="1">
             <Border.Background>
-                <ImageBrush ImageSource="ms-appx:///Assets/Wallpaper/spaceMountain_background.jpg" Stretch="Fill" />
+                <ImageBrush Stretch="Fill">
+                    <ImageBrush.ImageSource>
+                        <BitmapImage UriSource="ms-appx:///Assets/Wallpaper/spaceMountain_background.jpg" />
+                    </ImageBrush.ImageSource>
+                </ImageBrush>
             </Border.Background>
         </Border>
     </Grid>
